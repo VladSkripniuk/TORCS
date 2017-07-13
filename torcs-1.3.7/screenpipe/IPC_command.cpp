@@ -65,7 +65,7 @@ int main(int argc, char const *argv[])
 
     // Setup zmq
     static zmq::context_t context(1);
-    static zmq::socket_t socket(context, ZMQ_PAIR);
+    static zmq::socket_t socket(context, ZMQ_REP);
     printf("binding to socket\n");
     socket.bind("tcp://*:5555");
     printf("done\n");
@@ -117,10 +117,10 @@ int main(int argc, char const *argv[])
             string serialized_data;
             torcs_data.SerializeToString(&serialized_data);
 
-            /*zmq::message_t request;
+            zmq::message_t request;
             socket.recv(&request);
             std::string replyMessage = std::string(static_cast<char *>(request.data()), request.size());
-            //std::cout << "Recived from client: " + replyMessage << std::endl;*/
+            //std::cout << "Recived from client: " + replyMessage << std::endl;
 
             zmq::message_t reply(serialized_data.size());
             // std::cout << "checked OK!  2" << std::endl;
