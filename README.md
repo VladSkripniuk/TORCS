@@ -17,7 +17,7 @@ Launch container with created image
 
 ```sudo ./run.sh```
 
-In container use ```tmux``` to create multiple windows (Ctrl-B % or Ctrl-B " to create multiple panes)
+In container use ```tmux``` to create multiple windows (```Ctrl-B %``` or ```Ctrl-B "``` to create multiple panes)
 
 Run TORCS game server
 
