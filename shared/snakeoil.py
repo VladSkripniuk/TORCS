@@ -104,7 +104,8 @@ class Client():
             print 'Error: Could not create socket...'
             sys.exit(-1)
         # == Initialize Connection To Server ==
-        self.so.settimeout(1)
+        #self.so.settimeout(1)
+        self.so.setblocking(False)
         while True:
             a= "-90 -75 -60 -45 -30 -20 -15 -10 -5 0 5 10 15 20 30 45 60 75 90"
             initmsg='%s(init %s)' % (self.sid,a)
@@ -170,7 +171,11 @@ class Client():
         while True:
             try:
                 # Receive server data 
-                sockdata,addr= self.so.recvfrom(1024)
+                while True:
+                    try:
+                        sockdata,addr= self.so.recvfrom(1024)
+                    except socket.error, emsg:
+                        break
             except socket.error, emsg:
                 print "Waiting for data.............."
             if '***identified***' in sockdata:
@@ -316,6 +321,8 @@ def drive_example(c):
        R['accel']-= .2
     R['accel']= clip(R['accel'],0,1)
 
+    print S['curLapTime']
+
     # Automatic Transmission
     R['gear']=1
     if S['speedX']>50:
@@ -329,6 +336,8 @@ def drive_example(c):
     if S['speedX']>170:
         R['gear']=6
     return
+
+
 
 # ================ MAIN ================
 if __name__ == "__main__":
