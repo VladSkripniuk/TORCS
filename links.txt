@@ -32,3 +32,14 @@ http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-doc
 https://askubuntu.com/questions/793100/start-gui-application-in-docker-container-with-sudo
 
 https://github.com/rkern/line_profiler
+
+https://github.com/dnkirill/carnd/blob/master/p1_lane_lines_detection/P1.ipynb
+
+https://arxiv.org/abs/1704.05519
+https://arxiv.org/pdf/1604.07316.pdf
+https://github.com/SullyChen/Autopilot-TensorFlow
+
+https://github.com/saiprabhakar/DeepDriving
+http://saiprabhakar.github.io/files/deep_driving.pdf
+
+https://github.com/shicai/MobileNet-Caffe
